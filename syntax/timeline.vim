@@ -4,6 +4,7 @@ if exists("b:current_syntax")
   finish
 endif
 
+syntax match tlComment "\/\/.*$"
 syntax keyword tlDeclarations in is
 syntax keyword tlConditionals if else
 syntax keyword tlBooleans true false
@@ -24,14 +25,21 @@ syntax match tlParam "[a-z\-]\+:"
 
 syntax match tlNumber "[0-9,]\+"
 syntax match tlAngle "\d\+º"
+syntax match tlAngle "\d\+º\d\+'"
+syntax match tlAngle "\d\+º\d\+'\d\+\""
+syntax match tlAngle "\d\+º\d\+'\d\+\"\d\+"
 syntax match tlDistance "[0-9,]\+km"
 syntax match tlDistance "[0-9,]\+m"
 syntax match tlMass "[0-9,]\+kg"
 syntax match tlTime "[0-9,]\+ms"
+syntax match tlTime "[0-9,]\+s"
 syntax match tlTime "[0-9,]\+week"
 syntax match tlPercent "[0-9,]\+%"
+syntax match tlError "\S\[.*$"
 
 hi def link tlParam Delimiter
+hi def link tlComment Comment
+hi def link tlError Error
 
 hi def link tlEventHandler Function
 hi def link tlEventTrigger Function
